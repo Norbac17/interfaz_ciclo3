@@ -398,7 +398,7 @@ function getReservacion() {
         datatype: "JSON",
         success: function(respuesta) {
             console.log(respuesta);
-            pintarReservacio(respuesta);
+            pintarReservacion(respuesta);
         }
     });
 }
