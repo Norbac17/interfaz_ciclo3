@@ -410,6 +410,8 @@ function pintarReservacion(respuesta) {
     tableReservation += "<td class=" + "titles" + ">id reservacion</td>";
     tableReservation += "<td class=" + "titles" + ">Fecha de inicio</td>";
     tableReservation += "<td class=" + "titles" + ">mecha de entrega</td>";
+    tableReservation += "<td class=" + "titles" + ">estado</td>";
+    tableReservation += "<td class=" + "titles" + ">puntuación</td>";
     tableReservation += "</tr>";
     for (i = 0; i < respuesta.length; i++) {
         tableReservation += "<tr>";
