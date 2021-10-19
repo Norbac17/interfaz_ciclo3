@@ -1,7 +1,7 @@
 /////////////////////////CRUD CATEGORIA///////////////////
 function getCategoria() {
     $.ajax({
-        url: "http://132.226.31.143:80/api/Category/all",
+        url: "http://132.226.31.143:8080/api/Category/all",
         type: "GET",
         datatype: "JSON",
         success: function(respuesta) {
@@ -35,7 +35,7 @@ function postCategoria() {
     };
     let dataToSend = JSON.stringify(myData);
     $.ajax({
-        url: "http://132.226.31.143:80/api/Category/save",
+        url: "http://132.226.31.143:8080/api/Category/save",
         type: "POST",
         data: dataToSend,
         contentType: "application/JSON",
@@ -61,7 +61,7 @@ function postCategoria() {
 ///////////////////////CRUD PATINETAS/////////////////////
 function getPatinetas() {
     $.ajax({
-        url: "http://132.226.31.143:80/api/Skate/all",
+        url: "http://132.226.31.143:8080/api/Skate/all",
         type: "GET",
         datatype: "JSON",
         success: function(respuesta) {
@@ -102,7 +102,7 @@ function postPatinetas() {
     };
     let dataToSend = JSON.stringify(myData);
     $.ajax({
-        url: "http://132.226.31.143:80/api/Skate/save",
+        url: "http://132.226.31.143:8080/api/Skate/save",
         type: "POST",
         data: dataToSend,
         contentType: "application/JSON",
@@ -180,7 +180,7 @@ function deletePatinetas(idElemto) {
 
 function getClientes() {
     $.ajax({
-        url: "http://132.226.31.143:80/api/Client/all",
+        url: "http://132.226.31.143:8080/api/Client/all",
         type: "GET",
         datatype: "JSON",
         success: function(respuesta) {
@@ -219,7 +219,7 @@ function postClientes() {
     };
     let dataToSend = JSON.stringify(myDataC);
     $.ajax({
-        url: "http://132.226.31.143:80/api/Client/save",
+        url: "http://132.226.31.143:8080/api/Client/save",
         type: "POST",
         data: dataToSend,
         contentType: "application/JSON",
@@ -294,7 +294,7 @@ function deleteClientes(idElemento) {
 /////////////////////////CRUD MENSAJES/////////////////////////
 function getMensajes() {
     $.ajax({
-        url: "http://132.226.31.143:80/api/Message/all",
+        url: "http://132.226.31.143:8080/api/Message/all",
         type: "GET",
         datatype: "JSON",
         success: function(respuesta) {
@@ -326,7 +326,7 @@ function postMensajes() {
     };
     let dataToSend = JSON.stringify(myDataC);
     $.ajax({
-        url: "hhttp://132.226.31.143:80/api/Message/save",
+        url: "hhttp://132.226.31.143:8080/api/Message/save",
         type: "POST",
         data: dataToSend,
         contentType: "application/JSON",
@@ -393,7 +393,7 @@ function deleteMensajes(idElemento) {
 //////////////////////CRUD RESERVACION/////////////////////
 function getReservacion() {
     $.ajax({
-        url: "http://132.226.31.143:80/api/Reservation/all",
+        url: "http://132.226.31.143:8080/api/Reservation/all",
         type: "GET",
         datatype: "JSON",
         success: function(respuesta) {
@@ -431,7 +431,7 @@ function postReservacion() {
     };
     let dataToSend = JSON.stringify(myDataC);
     $.ajax({
-        url: "hhttp://132.226.31.143:80/api/Reservation/save",
+        url: "hhttp://132.226.31.143:8080/api/Reservation/save",
         type: "POST",
         data: dataToSend,
         contentType: "application/JSON",
