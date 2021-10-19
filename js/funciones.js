@@ -444,7 +444,7 @@ function postReservacion() {
             $("#resultadoRe").empty();
             $("#startDate").val();
             $("#devolutionDate").val();
-            getMensajes();
+            getReservacion();
             alert("se ha guardado con exito")
         },
         error: function(jqXHR, textStatus, errorThrown) {
