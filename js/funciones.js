@@ -326,7 +326,7 @@ function postMensajes() {
     };
     let dataToSend = JSON.stringify(myDataC);
     $.ajax({
-        url: "hhttp://132.226.31.143:8080/api/Message/save",
+        url: "http://132.226.31.143:8080/api/Message/save",
         type: "POST",
         data: dataToSend,
         contentType: "application/JSON",
@@ -431,7 +431,7 @@ function postReservacion() {
     };
     let dataToSend = JSON.stringify(myDataC);
     $.ajax({
-        url: "hhttp://132.226.31.143:8080/api/Reservation/save",
+        url: "http://132.226.31.143:8080/api/Reservation/save",
         type: "POST",
         data: dataToSend,
         contentType: "application/JSON",
