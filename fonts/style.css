@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'skate_icons';
+    src: url('skate_icons.eot?oy0fu0');
+    src: url('skate_icons.eot?oy0fu0#iefix') format('embedded-opentype'), url('skate_icons.ttf?oy0fu0') format('truetype'), url('skate_icons.woff?oy0fu0') format('woff'), url('skate_icons.svg?oy0fu0#skate_icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'skate_icons' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+    content: "\e900";
+    padding-top: 5px;
+    padding-right: 10px;
+    font-size: 15pt;
+}
+
+.icon-categoria:before {
+    content: "\e901";
+    padding-top: 5px;
+    padding-right: 10px;
+    font-size: 15pt;
+}
+
+.icon-skateboard:before {
+    content: "\e902";
+    padding-top: 5px;
+    padding-right: 10px;
+    font-size: 15pt;
+}
+
+.icon-calendar:before {
+    content: "\e903";
+    padding-top: 5px;
+    padding-right: 10px;
+    font-size: 15pt;
+}
+
+.icon-chat:before {
+    content: "\e904";
+    padding-top: 5px;
+    padding-right: 10px;
+    font-size: 15pt;
+}
+
+.icon-client:before {
+    content: "\e905";
+    padding-top: 5px;
+    padding-right: 5px;
+    font-size: 20pt;
+}

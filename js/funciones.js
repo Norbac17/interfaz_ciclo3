@@ -17,11 +17,14 @@ function pintarCategoria(respuesta) {
     tableCategory += "<tr>";
     tableCategory += "<td class=" + "titles" + ">Name</td>";
     tableCategory += "<td class=" + "titles" + ">Description</td>";
+    tableCategory += "<td class=" + "titles" + " colspan=" + "2" + ">Option</td>";
     tableCategory += "</tr>";
     for (i = 0; i < respuesta.length; i++) {
         tableCategory += "<tr>";
         tableCategory += "<td class=" + "titles2" + ">" + respuesta[i].name + "</td>";
         tableCategory += "<td class=" + "titles2" + ">" + respuesta[i].description + "</td>";
+        tableCategory += "<td class=" + "titles2" + "><button onclick='putCategoria(" + respuesta[i].id + ")'>Actualizar</button>";
+        tableCategory += "<td class=" + "titles2" + "><button onclick='deleteCategoria(" + respuesta[i].id + ")'>Eliminar</button>";
         tableCategory += "</tr>";
     }
     tableCategory += "</table>";
@@ -45,19 +48,59 @@ function postCategoria() {
             'Access-Control-Allow-Origin': '*',
         },
         success: function(respuesta) {
-            $("#nameCa").empty();
-            $("#descriptionCa").empty();
+            $("#nameCa").val();
+            $("#descriptionCa").val();
             getCategoria();
             alert("se ha guardado con exito")
         },
-        error: function(jqXHR, textStatus, errorThrown) {
-            window.location.reload()
-            alert("no se guardo correctamente");
+
+    })
+}
+
+function putCategoria(id) {
+    let myData = {
+        id: id,
+        name: $("#nameCa").val(),
+        description: $("#descriptionCa").val(),
+    };
+    let dataToSend = JSON.stringify(myData);
+    $.ajax({
+        url: "http://132.226.31.143:8080/api/Category/update",
+        type: "PUT",
+        data: dataToSend,
+        contentType: "application/JSON",
+        datatype: "JSON",
+        success: function(respuesta) {
+            $("#resultadoPs").empty();
+            $("#id").val();
+            $("#descriptionCa").val();
+            $("#nameCa").val();
+            getCategoria();
+            alert("se ha actualizado con exito")
+
         }
     })
 }
 
+function deleteCategoria(id) {
+    let myData = {
+        id: id
+    };
+    let dataToSend = JSON.stringify(myData);
+    $.ajax({
+        url: "http://132.226.31.143:8080/api/Category/" + id,
+        type: "DELETE",
+        data: dataToSend,
+        contentType: "application/JSON",
+        datatype: "JSON",
+        success: function(respuesta) {
+            $("#resultadoPs").empty();
+            getCategoria();
+            alert("se ha eliminado con exito!")
 
+        }
+    })
+}
 ///////////////////////CRUD PATINETAS/////////////////////
 function getPatinetas() {
     $.ajax({
@@ -80,6 +123,7 @@ function pintarPatinetas(respuesta) {
     tableSkate += "<td class=" + "titles" + ">brand</td>";
     tableSkate += "<td class=" + "titles" + ">year</td>";
     tableSkate += "<td class=" + "titles" + ">description</td>";
+    tableSkate += "<td class=" + "titles" + " colspan=" + "2" + ">Option</td>";
     tableSkate += "</tr>";
     for (i = 0; i < respuesta.length; i++) {
         tableSkate += "<tr>";
@@ -87,6 +131,8 @@ function pintarPatinetas(respuesta) {
         tableSkate += "<td class=" + "titles2" + ">" + respuesta[i].brand + "</td>";
         tableSkate += "<td class=" + "titles2" + ">" + respuesta[i].year + "</td>";
         tableSkate += "<td class=" + "titles2" + ">" + respuesta[i].description + "</td>";
+        tableSkate += "<td class=" + "titles2" + "><button onclick='putPatinetas(" + respuesta[i].id + ")'>Actualizar</button>";
+        tableSkate += "<td class=" + "titles2" + "><button onclick='deletePatinetas(" + respuesta[i].id + ")'>Eliminar</button>";
         tableSkate += "</tr>";
     }
     tableSkate += "</table>";
@@ -116,53 +162,49 @@ function postPatinetas() {
             $("#namePs").val();
             $("#brandPs").val();
             $("#yearPs").val();
-            $("#descriptionPs").empty();
+            $("#descriptionPs").empty('');
             getPatinetas();
             alert("se ha guardado con exito")
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            window.location.reload()
-            alert("no se guardo correctamente");
         }
+
     })
 }
 
-function putPatinetas() {
-    /*let myData = {
-        id: $("#id").val(),
-        brand: $("#brand").val(),
-        model: $("#model").val(),
-        category_id: $("#category_id").val(),
-        name: $("#name").val(),
+function putPatinetas(id) {
+    let myData = {
+        id: id,
+        name: $("#namePs").val(),
+        brand: $("#brandPs").val(),
+        year: $("#yearPs").val(),
+        description: $("#descriptionPs").val()
     };
     let dataToSend = JSON.stringify(myData);
     $.ajax({
-        url: "https://gb53455c16ecd61-dbskate.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/skate/skate",
+        url: "http://132.226.31.143:8080/api/Skate/update",
         type: "PUT",
         data: dataToSend,
         contentType: "application/JSON",
         datatype: "JSON",
         success: function(respuesta) {
             $("#resultadoPs").empty();
-            $("#id").val();
-            $("#brand").val();
-            $("#model").val();
-            $("#category_id").val();
-            $("#name").val();
+            $("#namePs").val('');
+            $("#brandPs").val('');
+            $("#yearPs").val('');
+            $("#descriptionPs").val('');
             getPatinetas();
             alert("se ha actualizado con exito")
 
         }
-    })*/
+    })
 }
 
-function deletePatinetas(idElemto) {
-    /*let myData = {
-        id: idElemto
+function deletePatinetas(id) {
+    let myData = {
+        id: id
     };
     let dataToSend = JSON.stringify(myData);
     $.ajax({
-        url: "https://gb53455c16ecd61-dbskate.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/skate/skate",
+        url: "http://132.226.31.143:8080/api/Skate/" + id,
         type: "DELETE",
         data: dataToSend,
         contentType: "application/JSON",
@@ -173,7 +215,7 @@ function deletePatinetas(idElemto) {
             alert("se ha eliminado con exito!")
 
         }
-    })*/
+    })
 }
 
 //////////////////////////Crud Clientes//////////////////////////////
@@ -197,12 +239,15 @@ function pintarClientes(respuesta) {
     tableClient += "<td class=" + "titles" + ">email</td>";
     tableClient += "<td class=" + "titles" + ">name</td>";
     tableClient += "<td class=" + "titles" + ">age</td>";
+    tableClient += "<td class=" + "titles" + " colspan=" + "2" + ">Option</td>";
     tableClient += "</tr>";
     for (i = 0; i < respuesta.length; i++) {
         tableClient += "<tr>";
-        tableClient += "<td class=" + "titles2" + ">" + respuesta[i].email + "</td>";
         tableClient += "<td class=" + "titles2" + ">" + respuesta[i].name + "</td>";
+        tableClient += "<td class=" + "titles2" + ">" + respuesta[i].email + "</td>";
         tableClient += "<td class=" + "titles2" + ">" + respuesta[i].age + "</td>";
+        tableClient += "<td class=" + "titles2" + "><button onclick='putClientes(" + respuesta[i].idClient + ")'>Actualizar</button>";
+        tableClient += "<td class=" + "titles2" + "><button onclick='deleteClientes(" + respuesta[i].idClient + ")'>Eliminar</button>";
         tableClient += "</tr>";
     }
     tableClient += "</table>";
@@ -211,10 +256,10 @@ function pintarClientes(respuesta) {
 
 function postClientes() {
     let myDataC = {
+        name: $("#nameCl").val(),
         email: $("#emailCl").val(),
         password: $("#passwordCl").val(),
-        name: $("#nameCl").val(),
-        age: $("#ageCl").val(),
+        age: $("#ageCl").val()
 
     };
     let dataToSend = JSON.stringify(myDataC);
@@ -236,48 +281,45 @@ function postClientes() {
             $("#ageCl").val();
             getClientes();
             alert("se ha guardado con exito")
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            window.location.reload()
-            alert("no se guardo correctamente");
         }
     })
 }
 
-function putClientes() {
-    /*let myData = {
-        id: $("#idC").val(),
-        name: $("#nameC").val(),
-        email: $("#emailC").val(),
-        age: $("#ageC").val(),
+function putClientes(id) {
+    let myData = {
+        idClient: id,
+        name: $("#nameCl").val(),
+        email: $("#emailCl").val(),
+        password: $("#passwordCl").val(),
+        age: $("#ageCl").val()
     };
     let dataToSend = JSON.stringify(myData);
     $.ajax({
-        url: "https://gb53455c16ecd61-dbskate.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/client/client",
+        url: "http://132.226.31.143:8080/api/Client/update",
         type: "PUT",
         data: dataToSend,
         contentType: "application/JSON",
         datatype: "JSON",
         success: function(respuesta) {
             $("#resultadoCs").empty();
-            $("#idC").val();
-            $("#nameC").val();
-            $("#emailC").val();
-            $("#ageC").val();
+            $("#nameCl").val();
+            $("#emailCl").val();
+            $("#passwordCl").val();
+            $("#ageCl").val();
             getClientes();
             alert("se ha actualizado con exito")
 
         }
-    })*/
+    })
 }
 
-function deleteClientes(idElemento) {
-    /*let myData = {
-        id: idElemento
+function deleteClientes(id) {
+    let myData = {
+        idClient: id
     };
     let dataToSend = JSON.stringify(myData);
     $.ajax({
-        url: "https://gb53455c16ecd61-dbskate.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/client/client",
+        url: "http://132.226.31.143:8080/api/Client/" + id,
         type: "DELETE",
         data: dataToSend,
         contentType: "application/JSON",
@@ -288,7 +330,7 @@ function deleteClientes(idElemento) {
             alert("se ha eliminado con exito!")
 
         }
-    })*/
+    })
 }
 
 /////////////////////////CRUD MENSAJES/////////////////////////
@@ -309,10 +351,14 @@ function pintarMensajes(respuesta) {
     let tableMessage = "<table align=" + "center" + ">";
     tableMessage += "<tr>";
     tableMessage += "<td class=" + "titles" + ">message</td>";
+    tableMessage += "<td class=" + "titles" + " colspan=" + "2" + ">Option</td>";
     tableMessage += "</tr>";
     for (i = 0; i < respuesta.length; i++) {
         tableMessage += "<tr>";
         tableMessage += "<td class=" + "titles2" + ">" + respuesta[i].messageText + "</td>";
+        tableMessage += "<td class=" + "titles2" + "><button onclick='putMensajes(" + respuesta[i].idMessage + ")'>Actualizar</button>";
+        tableMessage += "<td class=" + "titles2" + "><button onclick='deleteMensajes(" + respuesta[i].idMessage + ")'>Eliminar</button>";
+
         tableMessage += "</tr>";
     }
     tableMessage += "</table>";
@@ -321,7 +367,7 @@ function pintarMensajes(respuesta) {
 
 function postMensajes() {
     let myDataC = {
-        messagetext: $("#messagetext").val(),
+        messageText: $("#messagetext").val()
 
     };
     let dataToSend = JSON.stringify(myDataC);
@@ -340,44 +386,40 @@ function postMensajes() {
             $("#messagetext").val();
             getMensajes();
             alert("se ha guardado con exito")
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            window.location.reload()
-            alert("no se guardo correctamente");
         }
+
     })
 }
 
-function putMensajes() {
-    /*let myData = {
-        id: $("#idM").val(),
-        messagetext: $("#messagetext").val(),
+function putMensajes(id) {
+    let myData = {
+        idMessage: id,
+        messageText: $("#messagetext").val()
     };
     let dataToSend = JSON.stringify(myData);
     $.ajax({
-        url: "https://gb53455c16ecd61-dbskate.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/client/message",
+        url: "http://132.226.31.143:8080/api/Message/update",
         type: "PUT",
         data: dataToSend,
         contentType: "application/JSON",
         datatype: "JSON",
         success: function(respuesta) {
             $("#resultadoMs").empty();
-            $("#idM").val();
-            $("#messagetext").val();
+            $("#messagetext").val('');
             getMensajes();
             alert("se ha actualizado con exito")
 
         }
-    })*/
+    })
 }
 
-function deleteMensajes(idElemento) {
-    /*let myData = {
-        id: idElemento
+function deleteMensajes(id) {
+    let myData = {
+        idMessage: id
     };
     let dataToSend = JSON.stringify(myData);
     $.ajax({
-        url: "https://gb53455c16ecd61-dbskate.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/client/message",
+        url: "http://132.226.31.143:8080/api/Message/" + id,
         type: "DELETE",
         data: dataToSend,
         contentType: "application/JSON",
@@ -388,7 +430,7 @@ function deleteMensajes(idElemento) {
             alert("se ha eliminado con exito!")
 
         }
-    })*/
+    })
 }
 //////////////////////CRUD RESERVACION/////////////////////
 function getReservacion() {
@@ -409,9 +451,10 @@ function pintarReservacion(respuesta) {
     tableReservation += "<tr>";
     tableReservation += "<td class=" + "titles" + ">id reservacion</td>";
     tableReservation += "<td class=" + "titles" + ">Fecha de inicio</td>";
-    tableReservation += "<td class=" + "titles" + ">mecha de entrega</td>";
+    tableReservation += "<td class=" + "titles" + ">Fecha de entrega</td>";
     tableReservation += "<td class=" + "titles" + ">estado</td>";
     tableReservation += "<td class=" + "titles" + ">puntuación</td>";
+    tableReservation += "<td class=" + "titles" + " colspan=" + "2" + ">Option</td>";
     tableReservation += "</tr>";
     for (i = 0; i < respuesta.length; i++) {
         tableReservation += "<tr>";
@@ -420,6 +463,9 @@ function pintarReservacion(respuesta) {
         tableReservation += "<td class=" + "titles2" + ">" + respuesta[i].devolutionDate + "</td>";
         tableReservation += "<td class=" + "titles2" + ">" + respuesta[i].status + "</td>";
         tableReservation += "<td class=" + "titles2" + ">" + respuesta[i].score + "</td>";
+        tableReservation += "<td class=" + "titles2" + "><button onclick='putReservacion(" + respuesta[i].idReservation + ")'>Actualizar</button>";
+        tableReservation += "<td class=" + "titles2" + "><button onclick='deleteReservacion(" + respuesta[i].idReservation + ")'>Eliminar</button>";
+
         tableReservation += "</tr>";
     }
     tableReservation += "</table>";
@@ -452,6 +498,51 @@ function postReservacion() {
         error: function(jqXHR, textStatus, errorThrown) {
             window.location.reload()
             alert("no se guardo correctamente");
+        }
+    })
+}
+
+function putReservacion(id) {
+    let myData = {
+        idReservation: id,
+        startDate: $("#startDate").val(),
+        devolutionDate: $("#devolutionDate").val(),
+    };
+    let dataToSend = JSON.stringify(myData);
+    $.ajax({
+        url: "http://132.226.31.143:8080/api/Reservation/update",
+        type: "PUT",
+        data: dataToSend,
+        contentType: "application/JSON",
+        datatype: "JSON",
+        success: function(respuesta) {
+            $("#resultadoRe").empty();
+            $("#id").val();
+            $("#descriptionCa").val();
+            $("#nameCa").val();
+            getReservacion();
+            alert("se ha actualizado con exito")
+
+        }
+    })
+}
+
+function deleteReservacion(id) {
+    let myData = {
+        idReservation: id
+    };
+    let dataToSend = JSON.stringify(myData);
+    $.ajax({
+        url: "http://132.226.31.143:8080/api/Reservation/" + id,
+        type: "DELETE",
+        data: dataToSend,
+        contentType: "application/JSON",
+        datatype: "JSON",
+        success: function(respuesta) {
+            $("#resultadoRe").empty();
+            getReservacion();
+            alert("se ha eliminado con exito!")
+
         }
     })
 }

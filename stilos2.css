@@ -1,0 +1,356 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bahnschrift', sans-serif;
+}
+
+body {
+    background-image: url(img/inicio_pagina_v1.png);
+    background-color: #232543;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Formato Tablas*/
+
+.section_table {
+    overflow: auto;
+    padding: 5px;
+    margin-bottom: 10px;
+    height: 200px;
+    align-items: center;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+table,
+tr,
+td {
+    border: 2px solid #cecece;
+    border-collapse: collapse;
+    text-align: center;
+    table-layout: fixed;
+    height: min-content;
+    word-break: break-all;
+}
+
+.titles {
+    background-color: #FF4D00;
+    font-weight: bold;
+    color: white;
+}
+
+.titles2 {
+    background-color: white;
+    font-weight: bold;
+    color: black;
+}
+
+.buttons {
+    background-color: #FF4D00;
+    padding: 3px;
+    border-radius: 5px;
+    color: white;
+    border: 2px solid #cecece;
+}
+
+
+/* encabezado */
+
+.encabezado {
+    background-color: rgb(21, 4, 61);
+    position: fixed;
+    width: 100%;
+    float: right;
+    box-sizing: border-box;
+    height: 60px;
+}
+
+.img_princi {
+    float: left;
+    padding: 5px;
+    width: 55px;
+}
+
+.encabezado h1 {
+    float: left;
+    padding: 10px;
+    padding-left: 5px;
+    font-size: 25pt;
+    color: white;
+    text-shadow: 2px 2px 3px orangered;
+}
+
+.encabezado a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* navegacion */
+
+.nav-menu {
+    background-color: rgb(21, 4, 61);
+    float: left;
+    box-sizing: border-box;
+    width: 15%;
+    overflow: auto;
+    position: fixed;
+    height: 90%;
+    word-break: break-all;
+}
+
+.nav-menu a {
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    text-decoration: none;
+    display: flex;
+    text-shadow: 2px 2px 3px orangered;
+}
+
+.nav-menu a:hover {
+    color: orangered;
+    text-shadow: 2px 2px 3px white;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: rgb(21, 4, 61);
+    float: left;
+    box-sizing: border-box;
+    width: 15%;
+    overflow: hidden;
+    position: fixed;
+    height: 10%;
+    padding: 5px;
+    left: 0;
+    bottom: 0;
+}
+
+.footer div {
+    color: #fff;
+    font-size: 9pt;
+}
+
+
+/* sesion home */
+
+.div-home {
+    box-sizing: border-box;
+    width: 85%;
+    height: 570px;
+    float: right;
+}
+
+.div-home h1 {
+    font-family: 'Times New Roman', sans-serif;
+    font-size: 50pt;
+    padding-top: 25%;
+    padding-left: 5%;
+    text-shadow: 3px 3px 5px orangered;
+    color: white;
+}
+
+@keyframes sacudir {}
+
+
+/*sesion categoria*/
+
+.category_section {
+    background-image: url(img/fondo_categoria.png);
+    float: right;
+    width: 85%;
+    height: 570px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.contenedor_cat {
+    box-sizing: border-box;
+    padding: 10%;
+    background-color: rgb(21, 4, 61);
+    padding: 22px;
+    color: white;
+    width: 70%;
+    height: 70%;
+    border-radius: 25px;
+    box-shadow: 4px 4px 1px orangered;
+}
+
+.section {
+    background-color: rgb(21, 4, 61);
+    padding: 5¿px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+}
+
+.section h2 {
+    font-size: 30pt;
+    text-shadow: 2px 2px 3px orangered;
+}
+
+
+/*sesion skate*/
+
+.skate_section {
+    background-image: url(img/fondo_categoria.png);
+    float: right;
+    width: 85%;
+    height: 570px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.contenedor_ska {
+    box-sizing: border-box;
+    padding: 10%;
+    background-color: rgb(21, 4, 61);
+    padding: 22px;
+    color: white;
+    width: 70%;
+    height: 70%;
+    border-radius: 25px;
+    box-shadow: 4px 4px 1px orangered;
+}
+
+.section {
+    background-color: rgb(21, 4, 61);
+    padding: 5¿px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+}
+
+.section h2 {
+    font-size: 30pt;
+    text-shadow: 2px 2px 3px orangered;
+}
+
+
+/*--- sesion Cliente---*/
+
+.client_section {
+    background-image: url(img/fondo_categoria.png);
+    float: right;
+    width: 85%;
+    height: 570px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.contenedor_client {
+    box-sizing: border-box;
+    padding: 10%;
+    background-color: rgb(21, 4, 61);
+    padding: 22px;
+    color: white;
+    width: 70%;
+    height: 70%;
+    border-radius: 25px;
+    box-shadow: 4px 4px 1px orangered;
+}
+
+.section {
+    background-color: rgb(21, 4, 61);
+    padding: 5¿px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+}
+
+.section h2 {
+    font-size: 30pt;
+    text-shadow: 2px 2px 3px orangered;
+}
+
+
+/*--- sesion Message---*/
+
+.message_section {
+    background-image: url(img/fondo_categoria.png);
+    float: right;
+    width: 85%;
+    height: 570px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.contenedor_messa {
+    box-sizing: border-box;
+    padding: 10%;
+    background-color: rgb(21, 4, 61);
+    padding: 22px;
+    color: white;
+    width: 70%;
+    height: 70%;
+    border-radius: 25px;
+    box-shadow: 4px 4px 1px orangered;
+}
+
+.section {
+    background-color: rgb(21, 4, 61);
+    padding: 5¿px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+}
+
+.section h2 {
+    font-size: 30pt;
+    text-shadow: 2px 2px 3px orangered;
+}
+
+
+/*--- sesion Reservation---*/
+
+.reservation_section {
+    background-image: url(img/fondo_categoria.png);
+    float: right;
+    width: 85%;
+    height: 570px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.contenedor_reser {
+    box-sizing: border-box;
+    padding: 10%;
+    background-color: rgb(21, 4, 61);
+    padding: 22px;
+    color: white;
+    width: 85%;
+    height: 70%;
+    border-radius: 25px;
+    box-shadow: 4px 4px 1px orangered;
+}
+
+.section {
+    background-color: rgb(21, 4, 61);
+    padding: 5¿px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+}
+
+.section h2 {
+    font-size: 30pt;
+    text-shadow: 2px 2px 3px orangered;
+}

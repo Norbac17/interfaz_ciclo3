@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skate Rent</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <link href="img/skate_icon.png" rel="icon">
+    <link href="stilos2.css" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="encabezado">
+                <a href="home.html"><img class="img_princi" src="img/icono_principal.png" alt="no se pudo mostrar">
+                    <h1 class="text-light">Skate Rent</h1>
+                </a>
+            </div>
+            <br><br><br>
+            <nav id="menu" class="nav-menu">
+                <a href="home.html"><i class="icon-home"></i>home</a>
+                <a href="category.html"><i class="icon-categoria"></i>category</a>
+                <a href="skate.html"><i class="icon-skateboard"></i>skate</a>
+                <a href="client.html"><i class="icon-client"></i>client</a>
+                <a href="message.html"><i class="icon-chat"></i>message</a>
+                <a href="reservation.html"><i class="icon-calendar"></i>resevation</a>
+            </nav>
+        </div>
+    </header>
+    <section id="Message" class="message_section">
+        <div class="contenedor_messa">
+            <div style="text-align:center;" class="section">
+                <h2>Message</h2>
+            </div>
+            <div style="text-align:center;" id="resultadoMs" class="section_table"></div>
+            <form style="text-align:center;" class="section">
+                <input type="text" id="messagetext" placeholder="messagetext" required><br><br>
+                <button class="buttons" onclick="getMensajes()">Cosultar</button>
+                <button class="buttons" onclick="postMensajes()">Registrar</button>
+            </form>
+        </div>
+    </section>
+    <footer class="footer">
+        <div>
+            © Copyright <b>Skate Rent</b> Todos los derechos reservados <br><br>
+            <div>by Jhohan Marin</div>
+        </div>
+    </footer>
+
+</html>
